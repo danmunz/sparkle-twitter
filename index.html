@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunniSparkle's Life Updates</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    #tweet-form {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    #tweets {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .tweet {
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Sunni Sparkle's Life Updates</h1>
+    <div id="tweet-form">
+      <h2>Compose a Tweet:</h2>
+      <textarea id="tweet-text" rows="4" cols="50"></textarea><br>
+      <button id="tweet-button">Tweet</button>
+    </div>
+    <h2>Recent Tweets:</h2>
+<div id="tweets">
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const tweetButton = document.getElementById('tweet-button');
+          const tweetText = document.getElementById('tweet-text');
+          const tweetsContainer = document.getElementById('tweets');
+
+          tweetButton.addEventListener('click', function() {
+            const newTweet = document.createElement('div');
+            newTweet.className = 'tweet';
+            newTweet.innerHTML = `
+              <span class="username">@SunniSparkle</span>
+              <p>${tweetText.value}</p>
+            `;
+            tweetsContainer.insertBefore(newTweet, tweetsContainer.firstChild);
+            tweetText.value = ''; // Clear the text area
+          });
+        });
+      </script>
+
+      <!-- Other tweets will be displayed here -->
+    </div>
+  </div>
+
+</body>
+</html>
